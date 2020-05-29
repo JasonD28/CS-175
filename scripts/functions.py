@@ -4,6 +4,20 @@ import os
 import pandas as pd
 from collections import defaultdict
 import glob
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.autograd import Variable
+from torch.utils.data import DataLoader
+from torch.utils.data import sampler
+
+import torchvision.datasets as dset
+import torchvision.transforms as T
+
+import timeit
+
+
+print_every = 100
 
 
 def iou_box(boxes, boxes_pred, scores, thresholds):
@@ -141,3 +155,45 @@ def create_output(pred, output='output.csv'):
 def get_image_fps(dir):
     image_fps = glob.glob(dir + '/' + '*.dcm')
     return list(set(image_fps))
+
+
+def train(train_data, dtype, model, loss_fn, optimizer, num_epochs=1):
+    for epoch in range(num_epochs):
+        print('Starting epoch %d / %d' % (epoch + 1, num_epochs))
+        model.train()
+        for t, (x, y) in enumerate(train_data):
+            x_var = Variable(x.type(dtype))
+            y_var = Variable(y.type(dtype).long())
+
+            scores = model(x_var)
+
+            loss = loss_fn(scores, y_var)
+            if (t + 1) % print_every == 0:
+                print('t = %d, loss = %.4f' % (t + 1, loss.item()))
+
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+
+"""
+def check_accuracy(dtype, model, loader):
+    if loader.dataset.train:
+        print('Checking accuracy on validation set')
+    else:
+        print('Checking accuracy on test set')
+    num_correct = 0
+    num_samples = 0
+    model.eval()  # Put the model in test mode (the opposite of model.train(), essentially)
+    for x, y in loader:
+        with torch.no_grad():
+            x_var = Variable(x.type(dtype))
+
+        scores = model(x_var)
+        _, preds = scores.data.cpu().max(1)
+        num_correct += (preds == y).sum()
+        num_samples += preds.size(0)
+    acc = float(num_correct) / num_samples
+    print('Got %d / %d correct (%.2f)' % (num_correct, num_samples, 100 * acc))
+    
+"""
