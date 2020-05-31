@@ -47,7 +47,7 @@ class PneumoniaDataset(Dataset):
             }
         else:
             target = {
-                'boxes': torch.tensor([[0,0,0,0]], dtype=torch.float32),
+                'boxes': torch.tensor([[0,0,1,1]], dtype=torch.float32),
                 'masks': torch.tensor(mask, dtype=torch.uint8),
                 'labels': torch.zeros((1,), dtype=torch.int64)
             }
