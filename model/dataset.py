@@ -27,7 +27,7 @@ class PneumoniaDataset(Dataset):
         mask = np.zeros((1, 1024, 1024), dtype=np.uint8)
 
         target = {
-            'image_id': self.imgs[index][:-4],
+            'image_id': torch.tensor([index]),
             'iscrowd': torch.zeros((1,), dtype=torch.int64)
         }
 
