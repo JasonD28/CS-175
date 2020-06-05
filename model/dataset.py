@@ -52,7 +52,7 @@ class PneumoniaDataset(Dataset):
                     target['labels'] = torch.tensor([0], dtype=torch.int64)
                 else:
                     target['labels'] = torch.tensor([1], dtype=torch.int64)
-            return image, target
+        return image, target
 
     def __len__(self):
         return len(self.imgs)
