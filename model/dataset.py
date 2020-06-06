@@ -24,34 +24,37 @@ class PneumoniaDataset(Dataset):
         transform = transforms.Compose([transforms.ToTensor()])
         image = transform(image)
 
-        img_label = self.labels.loc[self.labels['patientId'] == self.imgs[index][:-4]].iloc[0]
+        img_label = self.labels.loc[self.labels['patientId'] == self.imgs[index][:-4]]
 
         target = {
             'image_id': torch.tensor([index]),
-            'iscrowd': torch.zeros((1,), dtype=torch.int64)
+            'iscrowd': torch.zeros((img_label.shape[0],), dtype=torch.int64)
         }
         if self.mode == 'train':
-            if int(img_label['Target']) == 1:
-                width = int(img_label['width'])
-                height = int(img_label['height'])
-                x = int(img_label['x'])
-                y = int(img_label['y'])
+            boxes = []
+            labels = []
+            area = []
+            for _, row in img_label.iterrows():
+                if int(row['Target']) == 1:
+                    width = int(row['width'])
+                    height = int(row['height'])
+                    x = int(row['x'])
+                    y = int(row['y'])
 
-                boxes = [x, y, x + width, y + height]
-                boxes = torch.tensor([boxes], dtype=torch.float32)
-
-                labels = torch.tensor([2], dtype=torch.int64)
-
-                target['boxes'] = boxes
-                target['area'] = torch.tensor([height * width], dtype=torch.int64)
-                target['labels'] = labels
-            else:
-                target['boxes'] = torch.tensor([[0,1,2,3]], dtype=torch.float32)
-                target['area'] = torch.tensor([4], dtype=torch.int64)
-                if img_label['class'] == 'Normal':
-                    target['labels'] = torch.tensor([0], dtype=torch.int64)
+                    boxes.append([x, y, x + width, y + height])
+                    labels.append(2)
+                    area.append(height * width)
                 else:
-                    target['labels'] = torch.tensor([1], dtype=torch.int64)
+                    boxes.append([0,1,2,3])
+                    area.append(4)
+                    if row['class'] == 'Normal':
+                        labels.append(0)
+                    else:
+                        labels.append(1)
+
+            target['boxes'] = torch.tensor(boxes, dtype=torch.float32)
+            target['area'] = torch.tensor(area, dtype=torch.int64)
+            target['labels'] = torch.tensor(labels, dtype=torch.int64)
         return image, target
 
     def __len__(self):
