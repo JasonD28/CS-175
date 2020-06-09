@@ -55,7 +55,9 @@ class PneumoniaDataset(Dataset):
             target['boxes'] = torch.tensor(boxes, dtype=torch.float32)
             target['area'] = torch.tensor(area, dtype=torch.int64)
             target['labels'] = torch.tensor(labels, dtype=torch.int64)
-
+        else:
+            for _, row in img_label.iterrows():
+                target['position'] = torch.tensor([0]) if row['ViewPosition'] == 'PA' else torch.tensor([1])
         return image, target
 
     def __len__(self):
