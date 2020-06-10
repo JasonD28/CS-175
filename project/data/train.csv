@@ -1,0 +1,31 @@
+patientId,x,y,width,height,Target,class,PatientSex,PatientAge,ViewPosition
+0004cfab-14fd-4e49-80ba-63a80b6bddd6,,,,,0,No Lung Opacity / Not Normal,F,51,PA
+00313ee0-9eaa-42f4-b0ab-c148ed3241cd,,,,,0,No Lung Opacity / Not Normal,F,48,PA
+00322d4d-1c29-4943-afc9-b6754be640eb,,,,,0,No Lung Opacity / Not Normal,M,19,AP
+003d8fa0-6bf1-40ed-b54c-ac657f8495c5,,,,,0,Normal,M,28,PA
+00436515-870c-4b36-a041-de91049b9ab4,264,152,213,379,1,Lung Opacity,F,32,AP
+00436515-870c-4b36-a041-de91049b9ab4,562,152,256,453,1,Lung Opacity,F,32,AP
+00569f44-917d-4c86-a842-81832af98c30,,,,,0,No Lung Opacity / Not Normal,M,54,AP
+006cec2e-6ce2-4549-bffa-eadfcd1e9970,,,,,0,No Lung Opacity / Not Normal,M,78,PA
+00704310-78a8-4b38-8475-49f4573b2dbb,323,577,160,104,1,Lung Opacity,M,75,PA
+00704310-78a8-4b38-8475-49f4573b2dbb,695,575,162,137,1,Lung Opacity,M,75,PA
+008c19e8-a820-403a-930a-bc74a4053664,,,,,0,No Lung Opacity / Not Normal,F,59,PA
+009482dc-3db5-48d4-8580-5c89c4f01334,,,,,0,Normal,M,63,PA
+009eb222-eabc-4150-8121-d5a6d06b8ebf,,,,,0,Normal,F,54,PA
+00a85be6-6eb0-421d-8acf-ff2dc0007e8a,,,,,0,Normal,M,48,PA
+00aecb01-a116-45a2-956c-08d2fa55433f,288,322,94,135,1,Lung Opacity,F,6,AP
+00aecb01-a116-45a2-956c-08d2fa55433f,547,299,119,165,1,Lung Opacity,F,6,AP
+014b7b58-f641-4477-8bbc-ae6f337745d6,,,,,0,No Lung Opacity / Not Normal,M,71,AP
+01538c3b-3de9-4fbb-95a8-732235821bbf,,,,,0,No Lung Opacity / Not Normal,F,50,PA
+016b1f90-bb9a-4d3a-9c38-74af5fffd5b5,,,,,0,No Lung Opacity / Not Normal,M,54,PA
+0174c4bb-28f5-41e3-a13f-a396badc18bd,155,182,273,501,1,Lung Opacity,M,23,AP
+0174c4bb-28f5-41e3-a13f-a396badc18bd,599,220,227,508,1,Lung Opacity,M,23,AP
+017c7b5b-618e-4bc9-943c-04c6a988d992,,,,,0,Normal,M,38,PA
+019d950b-dd38-4cf3-a686-527a75728be6,604,216,196,328,1,Lung Opacity,F,67,AP
+019e035e-2f82-4c66-a198-57422a27925f,,,,,0,No Lung Opacity / Not Normal,M,44,PA
+01a4059c-22f7-4f51-8a27-50aff0b3aeb3,,,,,0,Normal,M,40,PA
+01a5594f-e5d4-4f7a-b79d-3f57559fe37b,,,,,0,No Lung Opacity / Not Normal,M,59,PA
+01aad2a6-3b93-45e3-bf37-2d73348cb6fc,,,,,0,Normal,F,71,PA
+01adfd2f-7bc7-4cef-ab68-a0992752b620,225,415,98,101,1,Lung Opacity,F,53,AP
+01b15f07-1149-4ff8-9756-bc821e41b97c,,,,,0,Normal,M,31,PA
+01b9e362-4950-40f5-88fa-7557ac2a45bb,366,289,208,527,1,Lung Opacity,M,47,AP
