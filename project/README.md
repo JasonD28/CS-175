@@ -28,3 +28,4 @@ Eva Dai, 94015611, ydai8@uci.edu
   - [combining_predictions.ipynb](./src/combining_predictions.ipynb): contains the code for loading predictions for both classifier and combining them using AND operator
 
 * [project.ipynb](./project.ipynb): final demonstration of the entire project using a small size dataset
+* [project.html](./project.html): html version of the final demonstration of the project
