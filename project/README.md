@@ -1,5 +1,5 @@
 # Final Project Report for CS 175, Spring 2020
-**Project Title:** Water Filled Lung Detector
+**Project Title:** Pneumonia Detector
 
 **Project Number:** Group 14
 
