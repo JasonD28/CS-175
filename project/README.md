@@ -1,4 +1,6 @@
 # Final Project Report for CS 175, Spring 2020
+https://github.com/JasonD28/CS-175/
+
 **Project Title:** Pneumonia Detector
 
 **Project Number:** Group 14
